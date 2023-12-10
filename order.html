@@ -13,14 +13,13 @@
 <body class="frontpage">
     <nav>   
       <div class="loga"><p>BAKA</p> 
-      </div>
-
-          <input id="search" type="search" placeholder="Sök recept"> <a href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-            <path d="M21 21l-6 -6" />
-          </svg></a>
-          <ul>
+      </div> <form>          
+        <input id="search" type="search" placeholder="Sök recept"> <a href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+        <path d="M21 21l-6 -6" />
+      </svg></a></form>
+          <ul class="menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-heart" width="55" height="55" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c2a6a2" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
               <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
@@ -49,13 +48,13 @@
             </li>
           </ul>
     </nav>
-    <section class="hej">
-    <div>
+    <section >
+    <div class="shopping-basket">
       <h1>DIN VARUKORG</h1>
-      <ul>
-        <li>produkt</li>
-        <li>antal</li>
-        <li>summa</li>
+      <ul class="produkt">
+        <li class="produkt">produkt</li>
+        <li class="produkt">antal</li>
+        <li class="produkt">summa</li>
         <li></li>
       </ul>
     </section>
@@ -64,32 +63,32 @@
     <h1>
       PERSON UPPGIFTER
     </h1>
-    <form action="" method="get">
+    <form name="myForm" action="/confirmation.html" onsubmit="return validateForm()" method="">
       <div class="order">
         <div>
           <label for="order-name">Namn: </label><br>
-          <input type="namn" name = "order-name" id = "order-name" placeholder="Hela namnet">
+          <input type="text" name = "fname" id = "order-name" placeholder="Hela namnet">
         </div>
         <div>
           <label for="order-email">Email adress: </label><br>
-          <input type="email" name = "order-email" id = "order-email" placeholder="Email">
+          <input class="order-email" type="email" name = "email" id = "order-email" placeholder="Email">
         </div>
         <div>
           <label for="order-address-1">Adress: </label><br>
-          <input type="text" name = "order-address1" id = "order-address-1" placeholder="Adress"> <br>
+          <input type="text" name = "address" id = "order-address-1" placeholder="Adress"> <br>
           
         </div>
         <div>
         <label for="order-city">Stad: </label><br>
-        <input type="text" name="order-city" id="order-city" placeholder="Stad">
+        <input type="text" name="city" id="order-city" placeholder="Stad">
         </div>
         <div>
           <label for="order-zipcode">Postnummer: </label><br>
-          <input type="text" name="order-zipcode" id="order-zipcode" placeholder="Postnummer">
+          <input type="text" name="zipcode" id="order-zipcode" placeholder="Postnummer">
           </div>
       </div>
+      <input type="submit" value="Slutför">
     </form>
-    <a href="confirmation.html" class="btn btn-info" role="button">Slutför köp</a>
   </section>
 
   <div class="paj">
@@ -127,5 +126,6 @@
     <p>TEL:070-12 345 67</p>  
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="index.js"></script>
 </body>
 </html>

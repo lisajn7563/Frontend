@@ -27,8 +27,7 @@ nav {
     background-color: none;
 }
 
-
-ul {
+.menu {
     display: flex;
     margin: 0.2em;
     padding: 0.3em;
@@ -51,7 +50,7 @@ input {
     border: none;
     border-radius: 8px;
     text-indent: 0.5rem;
-    width: 250px;  
+    width: 240px;  
     margin: 1em; 
 }
 
@@ -76,7 +75,7 @@ form {
     border-radius: 20%;
     background-color:white;
     width: 0;
-    
+    margin: 0.5em;
 }
 
 li:hover,
@@ -128,15 +127,25 @@ h3 {
     margin-bottom: 1.5em;
 }
 
-
+.clear-cart.btn.btn-danger{
+   display: contents;
+   font-size: x-small;
+   
+}
+.btn.btn-primary {
+    font-size: medium;
+    margin-top: 2px;
+    width: 3em;
+    
+    margin-bottom: 0;
+}
 
 button {
     width: 25em;
     border: none;
     border-radius: 20em;
     margin-bottom: 1em;
-    background-color:#e4e5e6;
-    
+    background-color:#e4e5e6;  
 }
 button:hover,
 button:hover svg{
@@ -173,8 +182,7 @@ button:hover svg{
     position: sticky;
     top: 15em;
     background-color: none;
-    width: 100%;
-    margin-left: 5em;
+    margin-left: 0.5em;
 }
 
 .frontpic {
@@ -214,23 +222,47 @@ button:hover svg{
 }
 
 .cake {
-    width: 100%;
-    height: 100%;
-    
-    margin-right: 0;
+    display: flex;
+    height: 370px;
+    width: 375px;
 
 }
 
-a.btn.btn-info{
+@media screen and (min-width:600px){
+    .cake {
+        width: 100%;
+        height: 100%;
+        
+        margin-right: 0;
+    
+    }
+}
+
+
+.shopping-basket{
+
+    display:contents;
+   
+}
+
+.produkt{
+    display: contents;
+    justify-content: center;
+    
+}
+
+.btn{
     color: #000;
     background-color: white;
     border-color: #c2a6a2;
+    border-radius: 20em;
+    border-color: none;
 }
 
-a.btn.btn-info:hover{
+.btn:hover{
     color: #c2a6a2;
-    background-color:#F4F2ee;
     border-color:#c2a6a2 ;
+    border-color: none;
 }
 
 
