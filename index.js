@@ -1,64 +1,11 @@
-//console.log('Hello!')
-
-
-var variableName = "" // väldigt sällan vi använder var
-
-// variabler som används
-
-let letVariableName = "" 
-const constVariableName = "" // string
-
-// primetiva värden
-
-const boolValue = false // så const ändrar sin variabel beroende på vad du skriver efter = 
-
-const constVariableName2 = 5 // number, de blir de atomatiskt om jag lägger till en siffra
-
-const nullValue = null 
-
-const undefinedValue = undefined
-
-const personInfo = {
-    id: 1, 
-    name: 'Lisa',
-    lastName: 'Johansson',
-    age: 28
-}
-
-const arrayValue = [1, 2, 3, 4]
-
-const arryaValue2 = ["päron", 'äpple', `apelsin ${personInfo.name}`, 1, 2, 3, true, false, null ]
-
-////console.log(personInfo)
-
-arrayValue.push('kiwi')
-
-//console.log(arrayValue)
-
-const cheatCode = new Map
-
-cheatCode.set('infinite gold', 1234567890)
-cheatCode.set('god mode', 1177)
-cheatCode.set('tank',1990)
-
-//console.log(cheatCode.has('god mode'))
-//console.log(cheatCode.get('tank'))
-//console.log(cheatCode.keys())
-
-const setVariable = new Set // lista med unika värden
-
-setVariable.add(9)
-setVariable.add(4)
-setVariable.add(6)
-setVariable.add(11)
-setVariable.add(11)
 
 
 
-const button = document.querySelector('button')
-const box1 = document.querySelector('.box-1')
-
-
+/*Denna funktion är avsedd för att validera ett formulär (myForm).
+ Den försöker hämta värdena från formulärfälten med namnen
+"fname", "email", "address", "city" och "zipcode". 
+Om något av dessa fält är tomt visas ett varningsmeddelande, 
+och funktionen returnerar false, vilket indikerar en valideringsfel. */
 
 function validateForm() {
     let x = document.forms["myForm"]["fname", "email", "address", "city", "zipcode"].value;
@@ -68,12 +15,29 @@ function validateForm() {
     }
   }
 
+  const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
 
+// Hämta värdet för e-post
+const email = urlParams.get('email');
+
+// Använd värdet på sidan
+console.log("E-postadress: " + email);
+//document.getElementById('user-email').innerText = email;
+
+
+  /*Denna kod definierar en modul för hantering av en shoppingvagn.
+  Modulen använder ett IIFE (Immediately Invoked Function Expression) 
+  för att skapa ett separat scope och möjliggöra privat variabelåtkomst.*/ 
   var shoppingCart = (function() {
-    // =============================
-    // Private methods and propeties
-    // =============================
+
     cart = [];
+    
+    
+    /*Här skapas funktioner för att lägga till,
+    ta bort och hantera objekt i shoppingvagnen.
+    Dessutom finns funktioner för att spara och ladda 
+    vagnens tillstånd från sessionStorage. */
     
     // Constructor
     function Item(name, price, count) {
@@ -82,52 +46,56 @@ function validateForm() {
       this.count = count;
     }
     
-    // Save cart
+    // spara vagnen
     function saveCart() {
       sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
     }
     
-      // Load cart
+      // ladda cart
     function loadCart() {
       cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
     }
     if (sessionStorage.getItem("shoppingCart") != null) {
       loadCart();
     }
+
     
   
-    // =============================
-    // Public methods and propeties
-    // =============================
     var obj = {};
     
-    // Add to cart
+    // Funktion för att lägga till objekt i vagnen
     obj.addItemToCart = function(name, price, count) {
       for(var item in cart) {
         if(cart[item].name === name) {
+            // Om objektet redan finns i vagnen, öka antalet
           cart[item].count ++;
           saveCart();
           return;
         }
       }
+      // Skapa ett nytt objekt och lägg till det i vagnen om det inte redan finns
       var item = new Item(name, price, count);
       cart.push(item);
       saveCart();
     }
-    // Set count from item
+    
+    // Funktion för att sätta antalet för ett specifikt objekt i vagnen
     obj.setCountForItem = function(name, count) {
       for(var i in cart) {
         if (cart[i].name === name) {
+            // Uppdatera antalet för det specifika objektet
           cart[i].count = count;
           break;
         }
       }
     };
-    // Remove item from cart
+    // Funktion för att ta bort ett objekt från vagnen
     obj.removeItemFromCart = function(name) {
         for(var item in cart) {
           if(cart[item].name === name) {
+            // Minska antalet för det specifika objektet
             cart[item].count --;
+            // Ta bort objektet om antalet når 0
             if(cart[item].count === 0) {
               cart.splice(item, 1);
             }
@@ -137,10 +105,11 @@ function validateForm() {
       saveCart();
     }
   
-    // Remove all items from cart
+    // Funktion för att ta bort alla förekomster av ett objekt från vagnen
     obj.removeItemFromCartAll = function(name) {
       for(var item in cart) {
         if(cart[item].name === name) {
+            // Ta bort alla förekomster av objektet
           cart.splice(item, 1);
           break;
         }
@@ -148,13 +117,14 @@ function validateForm() {
       saveCart();
     }
   
-    // Clear cart
+    // Funktion för att rensa hela vagnen
     obj.clearCart = function() {
+        // Återställ vagnen till en tom array
       cart = [];
       saveCart();
     }
   
-    // Count cart 
+    // Funktion för att räkna det totala antalet objekt i vagnen
     obj.totalCount = function() {
       var totalCount = 0;
       for(var item in cart) {
@@ -162,8 +132,8 @@ function validateForm() {
       }
       return totalCount;
     }
-  
-    // Total cart
+
+    // Funktion för att beräkna den totala kostnaden för objekten i vagnen
     obj.totalCart = function() {
       var totalCart = 0;
       for(var item in cart) {
@@ -172,7 +142,7 @@ function validateForm() {
       return Number(totalCart.toFixed(2));
     }
   
-    // List cart
+    // Funktion för att skapa en kopia av vagnen med ytterligare beräkningar
     obj.listCart = function() {
       var cartCopy = [];
       for(i in cart) {
@@ -182,30 +152,20 @@ function validateForm() {
           itemCopy[p] = item[p];
   
         }
+        // Lägg till en beräknad total för varje objekt
         itemCopy.total = Number(item.price * item.count).toFixed(2);
         cartCopy.push(itemCopy)
       }
       return cartCopy;
     }
-  
-    // cart : Array
-    // Item : Object/Class
-    // addItemToCart : Function
-    // removeItemFromCart : Function
-    // removeItemFromCartAll : Function
-    // clearCart : Function
-    // countCart : Function
-    // totalCart : Function
-    // listCart : Function
-    // saveCart : Function
-    // loadCart : Function
+    // Returnera den skapade objektet för att representera shoppingvagnsmodulen
     return obj;
   })();
   
-  
-  // *****************************************
-  // Triggers / Events
-  // ***************************************** 
+/*Här fortsätter koden med händelseslyssnare som använder jQuery
+ för att interagera med HTML-element och uppdatera shoppingvagnens
+ gränssnitt. Det inkluderar händelseslyssnare för att lägga till objekt,
+ rensa vagnen och hantera ändringar i antal objekt. */
   // Add item
   $('.add-to-cart').click(function(event) {
     event.preventDefault();
@@ -221,7 +181,7 @@ function validateForm() {
     displayCart();
   });
   
-  
+  // Funktion för att visa innehållet i shoppingvagnen
   function displayCart() {
     var cartArray = shoppingCart.listCart();
     var output = "";
@@ -231,10 +191,7 @@ function validateForm() {
         + "<td>(" + cartArray[i].price + ")</td>"
         + "<td><div class='input-group'><button class='minus-item input-group-addon btn btn-primary' data-name=" + cartArray[i].name + ">-</button>"
         + "<input type='number' class='item-count form-control' data-name='" + cartArray[i].name + "' value='" + cartArray[i].count + "'>"
-        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>"
-       // + "<td><button class='delete-item btn btn-danger' data-name=" + cartArray[i].name + ">X</button></td>"
-        //+ " = " 
-        //+ "<td>" + cartArray[i].total + "</td>" 
+        + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>" 
         +  "</tr>";
     }
     $('.show-cart').html(output);
@@ -242,29 +199,13 @@ function validateForm() {
     $('.total-count').html(shoppingCart.totalCount());
   }
   
-  // Delete item button
   
-  $('.show-cart').on("click", ".delete-item", function(event) {
+  $('.show-cart').on("click", function(event) {
     var name = $(this).data('name')
     shoppingCart.removeItemFromCartAll(name);
     displayCart();
   })
   
-  
-//   // -1
-//   $('.show-cart').on("click", ".minus-item", function(event) {
-//     var name = $(this).data('name')
-//     shoppingCart.removeItemFromCart(name);
-//     displayCart();
-//   })
-//   // +1
-//   $('.show-cart').on("click", ".plus-item", function(event) {
-//     var name = $(this).data('name')
-//     shoppingCart.addItemToCart(name);
-//     displayCart();
-//   })
-  
-  // Item count input
   $('.show-cart').on("change", ".item-count", function(event) {
      var name = $(this).data('name');
      var count = Number($(this).val());
@@ -272,21 +213,6 @@ function validateForm() {
     displayCart();
   });
   
+  // Funktion för att visa innehållet i shoppingvagnen direkt när sidan laddas
   displayCart();
   
-
-//const button = document.querySelector('.btn')
-//const input = document.querySelector('.order-email')
-
-//const box1 = document.querySelector('.box-1')
-//function addToCart(){
-//button.addEventListener('click', function(){
-
-//    console.log(input.value);
-
-//    const paragraph = document.createElement ('p')
-//    paragraph.innerHTML= input.value
-
-//    box1.appendChild(paragraph)
-//})
-//}
