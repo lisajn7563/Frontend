@@ -35,7 +35,7 @@
     </div>
 
     <form>
-      <input id="search" type="search" placeholder="Sök recept"> <a href="shop.html"><svg
+      <input class="search-input" id="search" type="search" placeholder="Sök recept"> <a href="shop.html"><svg
           xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="44"
           viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
           stroke-linejoin="round">
@@ -117,34 +117,34 @@
       </section>
     </div>
     <section class="order">
-      <h2>
+      <h2 class="order-sub">
         PERSON UPPGIFTER
       </h2>
       <form name="myForm" action="/confirmation.html" onsubmit="return validateForm()" method="">
         <div class="order">
           <div>
             <label for="order-name">Namn: </label><br>
-            <input type="text" name="fname" id="order-name" placeholder="Hela namnet">
+            <input class="order-input" type="text" name="fname" id="order-name" placeholder="Hela namnet">
           </div>
           <div>
             <label for="order-email">E-postadress: </label><br>
-            <input class="order-email" type="email" name="email" id="order-email" placeholder="Email">
+            <input class="order-input" type="email" name="email" id="order-email" placeholder="Email">
           </div>
           <div>
             <label for="order-address-1">Adress: </label><br>
-            <input type="text" name="address" id="order-address-1" placeholder="Adress"> <br>
+            <input class="order-input" type="text" name="address" id="order-address-1" placeholder="Adress"> <br>
 
           </div>
           <div>
             <label for="order-city">Stad: </label><br>
-            <input type="text" name="city" id="order-city" placeholder="Stad">
+            <input class="order-input" type="text" name="city" id="order-city" placeholder="Stad">
           </div>
           <div>
             <label for="order-zipcode">Postnummer: </label><br>
-            <input type="text" name="zipcode" id="order-zipcode" placeholder="Postnummer">
+            <input class="order-input" type="text" name="zipcode" id="order-zipcode" placeholder="Postnummer">
           </div>
         </div>
-        <input type="submit" value="Slutför">
+        <input class="submit" type="submit" value="Slutför ">
       </form>
     </section>
 

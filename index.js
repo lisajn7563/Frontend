@@ -15,7 +15,8 @@ function validateForm() {
     }
   }
 
-  const queryString = window.location.search;
+ // för att få ut emailen på confirmations-sidan 
+const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
 // Hämta värdet för e-post
@@ -91,12 +92,15 @@ console.log("E-postadress: " + email);
     };
     // Funktion för att ta bort ett objekt från vagnen
     obj.removeItemFromCart = function(name) {
+      // Loopa igenom varje objekt i vagnen
         for(var item in cart) {
+          // Kolla om namnet på objektet matchar det angivna namnet
           if(cart[item].name === name) {
             // Minska antalet för det specifika objektet
             cart[item].count --;
             // Ta bort objektet om antalet når 0
             if(cart[item].count === 0) {
+              // Använd splice för att ta bort objektet från arrayen
               cart.splice(item, 1);
             }
             break;
@@ -105,9 +109,10 @@ console.log("E-postadress: " + email);
       saveCart();
     }
   
-    // Funktion för att ta bort alla förekomster av ett objekt från vagnen
+    // Funktion för att ta bort ALLA förekomster av ett objekt från vagnen
     obj.removeItemFromCartAll = function(name) {
       for(var item in cart) {
+        // Kolla om namnet på objektet matchar det angivna namnet
         if(cart[item].name === name) {
             // Ta bort alla förekomster av objektet
           cart.splice(item, 1);
@@ -117,7 +122,7 @@ console.log("E-postadress: " + email);
       saveCart();
     }
   
-    // Funktion för att rensa hela vagnen
+    // Funktion för att rensa hela vagnen (tömavarukorgen)
     obj.clearCart = function() {
         // Återställ vagnen till en tom array
       cart = [];
@@ -126,36 +131,52 @@ console.log("E-postadress: " + email);
   
     // Funktion för att räkna det totala antalet objekt i vagnen
     obj.totalCount = function() {
+      // Initialisera totalt antal till 0
       var totalCount = 0;
+      // Loopa igenom varje objekt i vagnen
       for(var item in cart) {
+        // Lägg till antalet för det aktuella objektet till det totala antalet
         totalCount += cart[item].count;
       }
+      // Returnera det totala antalet
       return totalCount;
     }
 
     // Funktion för att beräkna den totala kostnaden för objekten i vagnen
     obj.totalCart = function() {
+      // Initialisera totalt värdet till 0
       var totalCart = 0;
+      // Loopa igenom varje objekt i vagnen
       for(var item in cart) {
+        // Lägg till det totala värdet för det aktuella objektet till den totala summan
         totalCart += cart[item].price * cart[item].count;
       }
+      // Returnera det totala värdet av objekt i vagnen, avrundat till två decimaler
       return Number(totalCart.toFixed(2));
     }
   
     // Funktion för att skapa en kopia av vagnen med ytterligare beräkningar
     obj.listCart = function() {
+      // Skapa en tom array för att hålla kopior av objekten i vagnen med ytterligare beräkningar
       var cartCopy = [];
+      // Loopa igenom varje objekt i vagnen
       for(i in cart) {
+        // Hämta det aktuella objektet från vagnen
         item = cart[i];
+        // Skapa en kopia av objektet
         itemCopy = {};
+         // Loopa igenom varje egenskap (property) i objektet
         for(p in item) {
+          // Kopiera egenskapens värde till den nya kopian
           itemCopy[p] = item[p];
   
         }
-        // Lägg till en beräknad total för varje objekt
+        // Lägg till en beräknad total för varje objekt och avrunda till två decimaler
         itemCopy.total = Number(item.price * item.count).toFixed(2);
+        // Lägg till den skapade kopian i arrayen av kopior
         cartCopy.push(itemCopy)
       }
+      // Returnera den nya arrayen med kopior av objekten i vagnen
       return cartCopy;
     }
     // Returnera den skapade objektet för att representera shoppingvagnsmodulen
@@ -168,24 +189,34 @@ console.log("E-postadress: " + email);
  rensa vagnen och hantera ändringar i antal objekt. */
   // Add item
   $('.add-to-cart').click(function(event) {
+     // Förhindra standardbeteendet för klickhändelsen (till exempel att ladda om sidan)
     event.preventDefault();
+    // Hämta namnet och priset från data-attributen på det klickade elementet
     var name = $(this).data('name');
     var price = Number($(this).data('price'));
+    // Anropa funktionen addItemToCart i shoppingCart-modulen för att lägga till objekt i vagnen
     shoppingCart.addItemToCart(name, price, 1);
+    // Uppdatera gränssnittet för att visa den uppdaterade vagnen
     displayCart();
   });
   
   // Clear items
   $('.clear-cart').click(function() {
+    // Anropa clearCart-funktionen i shoppingCart-modulen för att tömma hela vagnen
     shoppingCart.clearCart();
+    // Uppdatera gränssnittet för att visa den tomma vagnen
     displayCart();
   });
   
   // Funktion för att visa innehållet i shoppingvagnen
   function displayCart() {
+     // Hämta en kopia av vagnens innehåll med ytterligare beräkningar
     var cartArray = shoppingCart.listCart();
+    // Skapa en tom sträng för att bygga HTML-koden för att visa vagnens innehåll
     var output = "";
+    // Loopa igenom varje objekt i den kopiade vagnen
     for(var i in cartArray) {
+      // Bygg HTML-koden för varje objekt och lägg till den i output-strängen
       output += "<tr>"
         + "<td>" + cartArray[i].name + "</td>" 
         + "<td>(" + cartArray[i].price + ")</td>"
@@ -194,8 +225,11 @@ console.log("E-postadress: " + email);
         + "<button class='plus-item btn btn-primary input-group-addon' data-name=" + cartArray[i].name + ">+</button></div></td>" 
         +  "</tr>";
     }
+    // Uppdatera HTML-elementet med klassen 'show-cart' med den genererade HTML-koden
     $('.show-cart').html(output);
+    // Uppdatera HTML-elementet med klassen 'total-cart' med det totala värdet av vagnen
     $('.total-cart').html(shoppingCart.totalCart());
+    // Uppdatera HTML-elementet med klassen 'total-count' med det totala antalet objekt i vagnen
     $('.total-count').html(shoppingCart.totalCount());
   }
   
