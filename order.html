@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,17 +8,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!DOCTYPE html>
   <script src="index.js"></script>
   <style>
     .show-cart li {
       display: flex;
     }
-
     .card {
       margin-bottom: 20px;
     }
-
     .card-img-top {
       width: 200px;
       height: 200px;
@@ -27,58 +23,72 @@
     }
   </style>
 </head>
-
 <body class="frontpage" onload="displayCart()">
   <nav>
     <div class="loga">
       <p>BAKA</p>
     </div>
-
     <form>
-      <input class="search-input" id="search" type="search" placeholder="Sök recept"> <a href="shop.html"><svg
-          xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="44"
-          viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
-          stroke-linejoin="round">
+      <input class="search-input" id="search" type="search" placeholder="Sök recept">
+      <a href="shop.html">
+        <svg
+          xmlns="http://www.w3.org/2000/svg" 
+          class="icon icon-tabler icon-tabler-search" 
+          width="20" height="44"
+          viewBox="0 0 24 24" 
+          stroke-width="1.5" stroke="#2c3e50" 
+          fill="none"
+          stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
           <path d="M21 21l-6 -6" />
-        </svg></a>
+        </svg>
+      </a>
     </form>
     <ul class="menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-heart" width="55"
-        height="55" viewBox="0 0 24 24" stroke-width="1.5" stroke="#c2a6a2" fill="none" stroke-linecap="round"
-        stroke-linejoin="round">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-heart" 
+      width="55" height="55" 
+      viewBox="0 0 24 24" 
+      stroke-width="1.5" stroke="#c2a6a2" 
+      fill="none" 
+      stroke-linecap="round" stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
         <path d="M10 17h-4v-14h-2" />
         <path d="M6 5l14 1l-.717 5.016m-7.783 1.984h-5.5" />
-        <path
-          d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
+        <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
       </svg>
       <li>
-        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-heart" width="33" height="33"
-          viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round"
+        <a class="list" href="index.html">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        class="icon icon-tabler icon-tabler-home-heart" 
+        width="33" height="33"
+          viewBox="0 0 24 24" 
+          stroke-width="1.5" stroke="#2c3e50" 
+          fill="none" stroke-linecap="round"
           stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M21 12l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h6" />
           <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.39 0 .754 .112 1.061 .304" />
-          <path
-            d="M19 21.5l2.518 -2.58a1.74 1.74 0 0 0 0 -2.413a1.627 1.627 0 0 0 -2.346 0l-.168 .172l-.168 -.172a1.627 1.627 0 0 0 -2.346 0a1.74 1.74 0 0 0 0 2.412l2.51 2.59z" />
+          <path d="M19 21.5l2.518 -2.58a1.74 1.74 0 0 0 0 -2.413a1.627 1.627 0 0 0 -2.346 0l-.168 .172l-.168 -.172a1.627 1.627 0 0 0 -2.346 0a1.74 1.74 0 0 0 0 2.412l2.51 2.59z" />
         </svg>
-        <a class="list" href="index.html">
           Startsida
-      </li>
       </a>
-      <li><svg xmlns="http://www.w3.org/2000/svg" class="icon-hat" width="33" height="33" viewBox="0 0 24 24"
-          stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    </li>
+      <li>
+        <a class="list" href="shop.html">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+        class="icon-hat" 
+        width="33" height="33" 
+        viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="#2c3e50" 
+        fill="none" 
+        stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path
-            d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
+          <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
           <path d="M6.161 17.009l11.839 -.009" />
         </svg>
-        <a class="list" href="shop.html">
           Shop
-      </li>
       </a>
       </li>
     </ul>
@@ -92,7 +102,6 @@
         </div>
         <div>
           <table class="show-cart table">
-
             <script>
               var cart = JSON.parse(sessionStorage.getItem('shoppingCart'));
               var output = "";
@@ -112,8 +121,6 @@
           <div>Total pris i kronor: <span class="total-cart"></span></div>
         </div>
       </div>
-
-
       </section>
     </div>
     <section class="order">
@@ -133,7 +140,6 @@
           <div>
             <label for="order-address-1">Adress: </label><br>
             <input class="order-input" type="text" name="address" id="order-address-1" placeholder="Adress"> <br>
-
           </div>
           <div>
             <label for="order-city">Stad: </label><br>
@@ -147,7 +153,6 @@
         <input class="submit" type="submit" value="Slutför ">
       </form>
     </section>
-
     <div class="paj">
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -178,8 +183,8 @@
       </div>
     </div>
     <div class="footer">
-      <p>HJÄLP & INFORMATION</p>
-      <P>EMAIL:bakaenkaka@gmail.com</P>
+      <p>HJÄLP & INFORMATION~</p>
+      <P>EMAIL:bakaenkaka@gmail.com~</P>
       <p>TEL:070-12 345 67</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -199,6 +204,4 @@
         })
       </script>
 </body>
-
-
 </html>

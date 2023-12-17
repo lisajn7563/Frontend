@@ -2,75 +2,103 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" 
+        content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" href="style.css"/>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="index.js"></script>
-       
+        <script src="index.js"></script>   
     </head>
     <body>
     <nav>
-      
-        <div class="loga"><p>BAKA</p> 
+        <div class="loga">
+          <p>BAKA</p> 
         </div>
         <form>
-          <input id="search" type="search" placeholder="Sök recept"><a href="shop.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="20" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <input 
+          id="search" 
+          type="search" 
+          placeholder="Sök recept">
+          <a href="shop.html">
+            <svg xmlns="http://www.w3.org/2000/svg" 
+            class="icon icon-tabler icon-tabler-search" 
+            width="20" height="44" 
+            viewBox="0 0 24 24" 
+            stroke-width="1.5" stroke="#2c3e50" 
+            fill="none" 
+            stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
             <path d="M21 21l-6 -6" />
-          </svg></a>
+          </svg>
+        </a>
       </form>
           <ul class="menu">
-            <li><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-heart" width="33" height="33" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <li>
+              <a href="index.html">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              class="icon icon-tabler icon-tabler-home-heart" 
+              width="33" height="33" 
+              viewBox="0 0 24 24" 
+              stroke-width="1.5" stroke="#2c3e50" 
+              fill="none" 
+              stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M21 12l-9 -9l-9 9h2v7a2 2 0 0 0 2 2h6" />
                 <path d="M9 21v-6a2 2 0 0 1 2 -2h2c.39 0 .754 .112 1.061 .304" />
                 <path d="M19 21.5l2.518 -2.58a1.74 1.74 0 0 0 0 -2.413a1.627 1.627 0 0 0 -2.346 0l-.168 .172l-.168 -.172a1.627 1.627 0 0 0 -2.346 0a1.74 1.74 0 0 0 0 2.412l2.51 2.59z" />
-              </svg><a href="index.html">
-                Startsida</li></a>
-            <li><svg xmlns="http://www.w3.org/2000/svg" class="icon-hat" width="33" height="33" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              </svg>
+                Startsida
+              </li>
+            </a>
+            <li>
+              <a href="shop.html">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon-hat" width="33" height="33" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z" />
                 <path d="M6.161 17.009l11.839 -.009" />
               </svg>
-              <a href="shop.html">
-                Shop</a></li>
-            <li><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-heart" width="33" height="33" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                Shop
+              </a>
+            </li>
+            <li>
+              <a href="order.html">
+              <svg xmlns="http://www.w3.org/2000/svg" 
+              class="icon icon-tabler icon-tabler-shopping-cart-heart" 
+              width="33" height="33" 
+              viewBox="0 0 24 24" 
+              stroke-width="1.5" stroke="#2c3e50" 
+              fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
                 <path d="M10 17h-4v-14h-2" />
                 <path d="M6 5l14 1l-.717 5.016m-7.783 1.984h-5.5" />
                 <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" />
               </svg>
-              <a href="order.html">
-                Din order</li></a>
+                Din order
+              </li>
+            </a>
           </ul>    
     </nav>
     <div class="rubrik"> 
       <h1>FÖRENKLA DIN BAKNING</h1>
       <h2> VI HJÄLPER DIG ATT SPARA BÅDE TID OCH PENGAR</h2>
       <p>Nu finns de 6 enkla recept, välj dina recept ~ Ingredienser i exakt mängder för mindre matsvinn ~ Leverans säkert till din dörr</p>
-    
     </div>
     <div>
       <img class="frontpic" src="photo-1587333981056-844f89654004.avif" width="100%" height="100%">
     </div>
-    
     <div class="cake" width="100%" height="100%">
       <img class="cake" src="photo-1555744038-d0bf77748106.avif" alt="cake" width="100%" height="100%">
-    
     </div>
-    
-    
     <div class="footer">
-      <p>HJÄLP & INFORMATION</p><br>
-      <P>EMAIL:bakaenkaka@gmail.com</P><br>
-      <p>TEL:070-12 345 67</p><br>
+      <p>HJÄLP & INFORMATION~</p>
+      <P>EMAIL:bakaenkaka@gmail.com~</P>
+      <p>TEL:070-12 345 67</p>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    
-     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+    crossorigin="anonymous">
+  </script>   
     </body>
-    
     </html>
